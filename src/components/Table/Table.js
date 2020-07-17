@@ -14,7 +14,7 @@ export const Table = ({ data }) => {
 
   return (
     <table className={`${styles['table']} fade-in`}>
-      <thead>
+      <thead className="fade-in" >
         <tr>
           <th width="70px">Author</th>
           <th width="120"></th>
@@ -38,7 +38,7 @@ export const Table = ({ data }) => {
             url,
           }) => {
             return (
-              <tr key={url}>
+              <tr className="fade-in" key={url}>
                 <td>
                   <img src={avatar} alt={author} />
                 </td>
