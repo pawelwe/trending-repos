@@ -70,6 +70,10 @@
     border-bottom: 1px dashed #eeeeee;
   }
 
+  tr:hover td {
+    background-color: lighten($emphasis, 45);
+  }
+
   img {
     display: block;
     max-width: 5.5rem;
