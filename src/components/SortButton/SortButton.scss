@@ -12,6 +12,6 @@
   will-change: border;
 
   &:hover {
-    border: 1px solid $emphasis;
+    border: 1px dashed $emphasis;
   }
 }
