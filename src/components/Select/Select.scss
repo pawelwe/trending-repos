@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .select {
   appearance: none;
@@ -8,9 +9,13 @@
   cursor: pointer;
   height: 3rem;
   padding: 0.4rem 1.4rem;
-  width: 20rem;
+  width: 100%;
 
   &:focus {
     outline: none;
+  }
+
+  @include for-tablet {
+    width: 20rem;
   }
 }
