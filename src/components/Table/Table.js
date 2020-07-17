@@ -13,8 +13,8 @@ export const Table = ({ data }) => {
   );
 
   return (
-    <table className={`${styles['table']} fade-in`}>
-      <thead className="fade-in" >
+    <table className={styles['table']}>
+      <thead>
         <tr>
           <th width="70px">Author</th>
           <th width="120"></th>
