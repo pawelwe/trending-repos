@@ -1,5 +1,5 @@
 {
-  "name": "wizard-app",
+  "name": "test-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -46,6 +46,9 @@
     "@babel/runtime": "^7.10.4",
     "axios": "^0.19.2",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   }
 }

@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid $text;
+  color: $blue;
+  cursor: pointer;
+  height: 3rem;
+  padding: 0.4rem 1.4rem;
+  width: 20rem;
+
+  &:focus {
+    outline: none;
+  }
+}

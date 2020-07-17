@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.button {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  cursor: pointer;
+  height: 3rem;
+  padding: 0.7rem 4rem;
+  width: 20rem;
+  transition: border 350ms ease-out;
+  will-change: border;
+
+  &:hover {
+    border: 1px solid $emphasis;
+  }
+}

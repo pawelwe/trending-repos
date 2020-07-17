@@ -1,0 +1,22 @@
+@import '../../styles/mixins';
+
+.header {
+  background: #0f2831;
+  margin-bottom: 1rem;
+  padding: 2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.header-content {
+  align-items: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include for-tablet {
+    flex-direction: row;
+  }
+}

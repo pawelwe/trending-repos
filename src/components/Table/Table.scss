@@ -1,0 +1,177 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.table {
+  font-size: 1.4rem;
+  font-weight: normal;
+  table-layout: fixed;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  vertical-align: baseline;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  tr td:last-child,
+  tr th:last-child {
+    padding-right: 1rem;
+
+    @include for-tablet {
+      text-align: center;
+    }
+  }
+
+  tr th:first-child {
+    padding-left: 1rem;
+
+    @include for-tablet {
+      text-align: center;
+    }
+  }
+
+  th,
+  td {
+    background-color: #ffffff;
+    font-size: 1.2rem;
+    padding: 0.2rem 0.6rem;
+    text-align: left;
+    vertical-align: middle;
+    word-break: break-word;
+  }
+
+  thead th {
+    background-color: $blue;
+    color: #fff;
+    padding: 1.3rem 0.6rem;
+
+    @include for-tablet {
+      position: sticky;
+      top: 71px;
+    }
+  }
+
+  tbody td {
+    border-bottom: 1px dashed #eeeeee;
+  }
+
+  img {
+    display: block;
+    max-width: 5.5rem;
+    padding: 0.5rem;
+  }
+
+  a {
+    background-color: #ffffff;
+    border: 1px solid $emphasis;
+    display: block;
+    color: $emphasis;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    transition: background-color 250ms ease-out;
+    will-change: background-color;
+    width: 100%;
+
+    &:hover {
+      background-color: $emphasis;
+      color: #ffffff;
+    }
+  }
+
+  @media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      border: 9px solid #eeeeee;
+    }
+
+    td {
+      /* Behave  like a "row" */
+      border: none;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    /*
+    Label the data
+    */
+    td:nth-of-type(1):before {
+      content: '';
+    }
+    td:nth-of-type(2):before {
+      content: 'Author';
+    }
+    td:nth-of-type(3):before {
+      content: 'Name';
+    }
+    td:nth-of-type(4):before {
+      content: 'Language';
+    }
+    td:nth-of-type(5):before {
+      content: 'Stars';
+    }
+    td:nth-of-type(6):before {
+      content: 'Description';
+    }
+    td:nth-of-type(7):before {
+      content: 'Link';
+    }
+  }
+}
+
+.description {
+  cursor: pointer;
+  display: block;
+  font-size: 1.2rem;
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0.8rem;
+  text-overflow: ellipsis;
+
+  &:global(.is-open) {
+    white-space: normal;
+  }
+}
