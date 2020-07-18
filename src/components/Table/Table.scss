@@ -1,6 +1,8 @@
 @import '../../styles/mixins';
 @import '../../styles/variables';
 
+$border: #eeeeee;
+
 .table {
   font-size: 1.4rem;
   font-weight: normal;
@@ -59,7 +61,7 @@
   }
 
   tbody td {
-    border-bottom: 1px dashed #eeeeee;
+    border-bottom: 1px dashed $border;
   }
 
   tr:hover td {
@@ -111,7 +113,7 @@
     }
 
     tr {
-      border: 1rem solid #eeeeee;
+      border: 1rem solid $border;
     }
 
     td {
