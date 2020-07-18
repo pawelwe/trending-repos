@@ -15,4 +15,8 @@
   &:hover {
     border: 1px dashed $emphasis;
   }
+
+  &:active {
+    border: 1px solid $emphasis;
+  }
 }

@@ -1,7 +1,8 @@
 @import '../../styles/mixins';
 @import '../../styles/variables';
 
-$border: #eeeeee;
+$border-light: #eeeeee;
+$border-dark: #e4dcdc;
 
 .table {
   font-size: 1.4rem;
@@ -28,6 +29,11 @@ $border: #eeeeee;
     border: 0;
     font: inherit;
     vertical-align: baseline;
+  }
+
+  tbody {
+    border: 1px solid $border-dark;
+    border-top: none;
   }
 
   tr th:first-child {
@@ -65,7 +71,7 @@ $border: #eeeeee;
   }
 
   tbody td {
-    border-bottom: 1px dashed $border;
+    border-bottom: 1px dashed $border-light;
   }
 
   tr:hover td {
@@ -117,7 +123,7 @@ $border: #eeeeee;
     }
 
     tr {
-      border: 1rem solid $border;
+      border: 1rem solid $border-light;
     }
 
     td {
@@ -127,11 +133,12 @@ $border: #eeeeee;
     }
 
     td:before {
+      font-weight: 700;
       position: absolute;
       top: 6px;
       left: 6px;
       width: 45%;
-      padding-right: 10px;
+      padding-right: 1rem;
       white-space: nowrap;
     }
 
