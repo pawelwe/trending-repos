@@ -14,7 +14,7 @@ export const TimeSpan = ({ timeSpans, onChange, checkedItem }) => {
               value={value}
               checked={value === checkedItem}
             />
-            <div className="check"></div>
+            <div className={styles['time-span-check']}></div>
             <label htmlFor={value}>{value}</label>
           </div>
         );

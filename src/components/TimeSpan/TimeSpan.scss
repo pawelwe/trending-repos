@@ -26,25 +26,23 @@
     cursor: pointer;
   }
 
-  input:checked ~ :global(.check) {
+  input:checked ~ :local(.time-span-check) {
     &:after {
       display: block;
     }
   }
 
-  :global {
-    .check {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 16px;
-      width: 16px;
-      background-color: #fff;
-      border-radius: 50%;
-      z-index: -1;
-    }
+  .time-span-check {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: -1;
 
-    .check:after {
+    &:after {
       content: '';
       position: absolute;
       display: none;

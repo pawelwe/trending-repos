@@ -42,7 +42,7 @@ export const TrendingRepos = () => {
     <div>
       <Header />
       <Messages isBusy={isBusy} error={error} noResults={noResults} />
-      <main className={'container fade-in'}>
+      <main className="container">
         {!noResults && !isBusy && <Table data={repositories} />}
       </main>
     </div>

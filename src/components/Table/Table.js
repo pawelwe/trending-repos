@@ -20,7 +20,7 @@ export const Table = ({ data }) => {
           <th width="120"></th>
           <th width="150px">Name</th>
           <th width="100px">Language</th>
-          <th width="50px">Stars</th>
+          <th width="60px">Stars</th>
           <th>Description</th>
           <th width="150px">Link</th>
         </tr>
