@@ -24,12 +24,12 @@ export const Header = () => {
   const handleChangeLanguage = useCallback(e => {
     dispatch(setLanguage(e.target.value));
     dispatch(fetchRepositories());
-  }, []);
+  }, [language]);
 
   const handleChangeTimeSpan = useCallback(e => {
     dispatch(setTimeSpan(e.target.value));
     dispatch(fetchRepositories());
-  }, []);
+  }, [since]);
 
   const sortData = useCallback(() => {
     dispatch(setSoringDir(sortDir === 'asc' ? 'desc' : 'asc'));
