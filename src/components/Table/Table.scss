@@ -162,6 +162,7 @@ $border: #eeeeee;
   vertical-align: top;
   white-space: nowrap;
   overflow: hidden;
+  padding: 0.8rem 0;
   text-overflow: ellipsis;
 
   &:global(.is-open) {
