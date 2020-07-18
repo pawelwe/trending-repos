@@ -20,30 +20,6 @@ body {
     animation: fadeIn 400ms;
   }
 
-  .messages {
-    margin: 1rem 0;
-    padding: 1rem;
-
-    &:empty {
-      margin: 0;
-      padding: 0;
-    }
-
-    @include for-desktop {
-      padding: 1rem 0;
-    }
-  }
-
-  .error {
-    color: #ff0000;
-  }
-
-  .message {
-    font-size: 1.2rem;
-    margin: 1rem;
-    text-align: center;
-  }
-
   img {
     max-width: 100%;
   }
