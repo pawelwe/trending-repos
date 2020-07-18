@@ -37,14 +37,6 @@
     }
   }
 
-  tr th:first-child {
-    padding-left: 1rem;
-
-    @include for-tablet {
-      text-align: center;
-    }
-  }
-
   th,
   td {
     background-color: #ffffff;
