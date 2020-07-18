@@ -1,7 +1,9 @@
 @import '../../styles/mixins';
+@import '../../styles/variables';
+
 
 .header {
-  background: #0f2831;
+  background: $blue;
   margin-bottom: 1rem;
   padding: 1rem;
   position: sticky;
