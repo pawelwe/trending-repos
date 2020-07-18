@@ -30,6 +30,10 @@ $border: #eeeeee;
     vertical-align: baseline;
   }
 
+  tr th:first-child {
+    padding-left: 2rem;
+  }
+
   tr td:last-child,
   tr th:last-child {
     padding-right: 1rem;
