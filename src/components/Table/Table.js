@@ -20,8 +20,9 @@ export const Table = ({ data }) => {
     <table className={styles['table']}>
       <thead>
         <tr>
-          <th width="70px">Author</th>
-          <th width="120"></th>
+          <th width="190px" colSpan="2">
+            Author
+          </th>
           <th width="150px">Name</th>
           <th width="100px">Language</th>
           <th width="60px">Stars</th>
