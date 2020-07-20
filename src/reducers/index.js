@@ -10,7 +10,7 @@ import {
 const initialState = {
   isBusy: false,
   error: null,
-  repositories: [],
+  repositories: null,
   since: 'daily',
   language: '',
   sortDir: 'desc',
@@ -21,9 +21,9 @@ export const mainReducer = (state = initialState, action) => {
     case SET_BUSY:
       return { ...state, isBusy: action.payload };
     case SET_ERROR:
-      return { ...state, error: action.payload };
+      return { ...state, error: action.payload, isBusy: false };
     case SET_REPOSITORIES:
-      return { ...state, repositories: action.payload };
+      return { ...state, repositories: action.payload, isBusy: false };
     case SET_LANGUAGE:
       return { ...state, language: action.payload };
     case SET_TIME_SPAN:

@@ -12,6 +12,10 @@ export const Table = ({ data }) => {
     [isDescOpen],
   );
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <table className={styles['table']}>
       <thead>

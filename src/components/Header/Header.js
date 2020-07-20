@@ -21,15 +21,21 @@ export const Header = () => {
   );
   const dispatch = useDispatch();
 
-  const handleChangeLanguage = useCallback(e => {
-    dispatch(setLanguage(e.target.value));
-    dispatch(fetchRepositories());
-  }, [language]);
+  const handleChangeLanguage = useCallback(
+    e => {
+      dispatch(setLanguage(e.target.value));
+      dispatch(fetchRepositories());
+    },
+    [language],
+  );
 
-  const handleChangeTimeSpan = useCallback(e => {
-    dispatch(setTimeSpan(e.target.value));
-    dispatch(fetchRepositories());
-  }, [since]);
+  const handleChangeTimeSpan = useCallback(
+    e => {
+      dispatch(setTimeSpan(e.target.value));
+      dispatch(fetchRepositories());
+    },
+    [since],
+  );
 
   const sortData = useCallback(() => {
     dispatch(setSoringDir(sortDir === 'asc' ? 'desc' : 'asc'));
@@ -56,7 +62,9 @@ export const Header = () => {
           onChange={handleChangeTimeSpan}
           checkedItem={since}
         />
-        <SortButton sortDir={sortDir} onClick={sortData}>Sort by stars</SortButton>
+        <SortButton sortDir={sortDir} onClick={sortData}>
+          Sort by stars
+        </SortButton>
       </div>
     </header>
   );

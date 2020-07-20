@@ -65,7 +65,5 @@ export const fetchRepositories = () => async (dispatch, getState) => {
     dispatch(setRepositories(data));
   } catch ({ message }) {
     dispatch(setError(message));
-  } finally {
-    dispatch(setBusy(false));
   }
 };

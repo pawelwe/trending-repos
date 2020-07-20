@@ -1,11 +1,11 @@
 export default [
   {
-    value: 'Daily',
+    value: 'daily',
   },
   {
-    value: 'Weekly',
+    value: 'weekly',
   },
   {
-    value: 'Monthly',
+    value: 'monthly',
   },
 ];
