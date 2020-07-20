@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Loader } from '../Loader/Loader';
 import styles from './Messages.scss';
 
-export const Messages = ({ isBusy, error, noResults }) => {
+export const Messages = memo(({ isBusy, error, noResults }) => {
   return (
     <div className="container">
       {isBusy && <Loader />}
@@ -12,4 +12,4 @@ export const Messages = ({ isBusy, error, noResults }) => {
       {noResults && !isBusy && <span>No results 😔</span>}
     </div>
   );
-};
+});
