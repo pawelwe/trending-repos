@@ -1,7 +1,6 @@
 @import '../../styles/mixins';
 @import '../../styles/variables';
 
-
 .header {
   background: $blue;
   margin-bottom: 1rem;
@@ -11,7 +10,11 @@
   z-index: 1;
 
   @include for-tablet {
-    padding: 1rem 0;
+    margin-bottom: 0;
+  }
+
+  @include for-desktop {
+    padding: 1rem;
   }
 }
 

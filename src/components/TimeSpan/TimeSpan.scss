@@ -5,7 +5,7 @@
   display: flex;
   margin: 1.5rem 0;
 
-  @include for-desktop {
+  @include for-tablet {
     margin: 0;
   }
 }
