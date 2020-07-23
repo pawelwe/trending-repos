@@ -39,12 +39,12 @@ export const TrendingRepos = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Header />
       <Messages isBusy={isBusy} error={error} noResults={noResults} />
       <main className="container">
         {!noResults && !isBusy && <Table data={repositories} />}
       </main>
-    </div>
+    </>
   );
 };
