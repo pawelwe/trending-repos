@@ -32,8 +32,10 @@ $border-dark: #e4dcdc;
   }
 
   tbody {
-    border: 1px solid $border-dark;
-    border-top: none;
+    @include for-tablet {
+      border: 1px solid $border-dark;
+      border-top: none;
+    }
   }
 
   tr th:first-child {
