@@ -1,9 +1,7 @@
-import React, { useCallback, memo, useMemo } from 'react';
-import { useDispatch, useSelector, batch } from 'react-redux';
+import React, { useCallback, memo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  fetchRepositories,
   changeTimeSpan,
-  setTimeSpan,
   sortRepositories,
   changeLanguage,
 } from '../../actions';
