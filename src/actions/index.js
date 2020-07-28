@@ -71,6 +71,13 @@ export const changeLanguage = language => dispatch => {
   });
 };
 
+export const changeTimeSpan = timeSpan => dispatch => {
+  batch(() => {
+    dispatch(setTimeSpan(timeSpan));
+    dispatch(fetchRepositories());
+  });
+};
+
 export const fetchRepositories = () => async (dispatch, getState) => {
   batch(() => {
     dispatch(setError(null));

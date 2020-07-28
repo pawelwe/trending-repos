@@ -2,7 +2,7 @@ import React, { useCallback, memo, useMemo } from 'react';
 import { useDispatch, useSelector, batch } from 'react-redux';
 import {
   fetchRepositories,
-  setLanguage,
+  changeTimeSpan,
   setTimeSpan,
   sortRepositories,
   changeLanguage,
@@ -27,17 +27,16 @@ export const Header = memo(() => {
 
   const handleChangeTimeSpan = useCallback(
     e => {
-      dispatch(setTimeSpan(e.target.value));
-      dispatch(fetchRepositories());
+      dispatch(changeTimeSpan(e.target.value));
     },
-    [since],
+    [dispatch],
   );
 
   const sortData = useCallback(() => {
     dispatch(sortRepositories());
   }, [dispatch]);
 
-  const renderOptions = useCallback((options) => {
+  const renderOptions = useCallback(options => {
     return options.map(({ name, urlParam }) => {
       return <option key={urlParam}>{name}</option>;
     });
