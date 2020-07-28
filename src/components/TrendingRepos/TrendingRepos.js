@@ -38,6 +38,8 @@ export const TrendingRepos = () => {
     fetchData();
   }, []);
 
+  console.log('App rendered');
+
   return (
     <>
       <Header />

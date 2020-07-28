@@ -1,4 +1,6 @@
+import { batch } from 'react-redux';
 import ghapi from '../apis/ghapi';
+import { compareValues, cloneObject } from '../utils/utils';
 
 export const SET_BUSY = 'SET_BUSY';
 export const SET_ERROR = 'SET_ERROR';
@@ -49,9 +51,31 @@ export const setSoringDir = dir => {
   };
 };
 
+export const sortRepositories = (sortBy = 'stars') => (dispatch, getState) => {
+  const { repositories, sortDir } = getState();
+
+  batch(() => {
+    dispatch(setSoringDir(sortDir === 'asc' ? 'desc' : 'asc'));
+    dispatch(
+      setRepositories(
+        cloneObject(repositories).sort(compareValues(sortBy, sortDir)),
+      ),
+    );
+  });
+};
+
+export const changeLanguage = language => dispatch => {
+  batch(() => {
+    dispatch(setLanguage(language));
+    dispatch(fetchRepositories());
+  });
+};
+
 export const fetchRepositories = () => async (dispatch, getState) => {
-  dispatch(setError(null));
-  dispatch(setBusy(true));
+  batch(() => {
+    dispatch(setError(null));
+    dispatch(setBusy(true));
+  });
 
   try {
     const { since, language } = getState();

@@ -1,32 +1,28 @@
-import React, { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useCallback, memo, useMemo } from 'react';
+import { useDispatch, useSelector, batch } from 'react-redux';
 import {
   fetchRepositories,
   setLanguage,
   setTimeSpan,
-  setRepositories,
-  setSoringDir,
+  sortRepositories,
+  changeLanguage,
 } from '../../actions';
 import styles from './Header.scss';
 import languages from '../../config/languages';
 import timeSpans from '../../config/timeSpans';
-import { compareValues } from '../../utils/utils';
 import { Select } from '../Select/Select';
 import { SortButton } from '../SortButton/SortButton';
 import { TimeSpan } from '../TimeSpan/TimeSpan';
 
-export const Header = () => {
-  const { repositories, since, sortDir, language } = useSelector(
-    state => state,
-  );
+export const Header = memo(() => {
+  const { since, sortDir, language } = useSelector(state => state);
   const dispatch = useDispatch();
 
   const handleChangeLanguage = useCallback(
     e => {
-      dispatch(setLanguage(e.target.value));
-      dispatch(fetchRepositories());
+      dispatch(changeLanguage(e.target.value));
     },
-    [language],
+    [dispatch],
   );
 
   const handleChangeTimeSpan = useCallback(
@@ -38,11 +34,16 @@ export const Header = () => {
   );
 
   const sortData = useCallback(() => {
-    dispatch(setSoringDir(sortDir === 'asc' ? 'desc' : 'asc'));
-    dispatch(
-      setRepositories([...repositories.sort(compareValues('stars', sortDir))]),
-    );
-  }, [repositories, sortDir]);
+    dispatch(sortRepositories());
+  }, [dispatch]);
+
+  const renderOptions = useCallback((options) => {
+    return options.map(({ name, urlParam }) => {
+      return <option key={urlParam}>{name}</option>;
+    });
+  }, []);
+
+  console.log('Header rendered');
 
   return (
     <header className={styles['header']}>
@@ -51,11 +52,7 @@ export const Header = () => {
           value={language}
           onChange={handleChangeLanguage}
           optionsData={languages}
-          render={options => {
-            return options.map(({ name, urlParam }) => {
-              return <option key={urlParam}>{name}</option>;
-            });
-          }}
+          render={renderOptions}
         />
         <TimeSpan
           timeSpans={timeSpans}
@@ -68,4 +65,4 @@ export const Header = () => {
       </div>
     </header>
   );
-};
+});

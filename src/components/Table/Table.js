@@ -16,6 +16,8 @@ export const Table = ({ data }) => {
     return null;
   }
 
+  console.log('Table rendered');
+
   return (
     <table className={styles['table']}>
       <thead>

@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import styles from './TimeSpan.scss';
 
 export const TimeSpan = memo(({ timeSpans, onChange, checkedItem }) => {
+  console.log('TimeSpan rendered');
   return (
     <div className={styles['time-span-box']}>
       {timeSpans.map(({ value }) => {
