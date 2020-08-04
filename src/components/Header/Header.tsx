@@ -6,7 +6,7 @@ import {
   setTimeSpan,
   setRepositories,
   setSoringDir,
-} from '../../actions';
+} from '../../actions/index';
 import styles from './Header.scss';
 import languages from '../../config/languages';
 import timeSpans from '../../config/timeSpans';
@@ -14,16 +14,25 @@ import { compareValues } from '../../utils/utils';
 import { Select } from '../Select/Select';
 import { SortButton } from '../SortButton/SortButton';
 import { TimeSpan } from '../TimeSpan/TimeSpan';
+import { InitialStateInterface } from '../../reducers/index';
 
-export const Header = () => {
-  const { repositories, since, sortDir, language } = useSelector(
-    state => state,
-  );
+interface StateProps {
+  sortDir: string;
+  repositories: Array<Object>;
+  since: string;
+  language: string;
+}
+
+export const Header: React.FC = () => {
+  const { repositories, since, sortDir, language } = useSelector<
+    InitialStateInterface,
+    StateProps
+  >((state: InitialStateInterface) => state);
   const dispatch = useDispatch();
 
   const handleChangeLanguage = useCallback(
-    e => {
-      dispatch(setLanguage(e.target.value));
+    event => {
+      dispatch(setLanguage(event.target.value));
       dispatch(fetchRepositories());
     },
     [language],
@@ -51,7 +60,7 @@ export const Header = () => {
           value={language}
           onChange={handleChangeLanguage}
           optionsData={languages}
-          render={options => {
+          render={(options: Array<{ name: string; urlParam: string }>) => {
             return options.map(({ name, urlParam }) => {
               return <option key={urlParam}>{name}</option>;
             });

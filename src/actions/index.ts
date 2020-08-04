@@ -7,49 +7,52 @@ export const SET_LANGUAGE = 'SET_LANGUAGE';
 export const SET_TIME_SPAN = 'SET_TIME_SPAN';
 export const SET_SORTING_DIR = 'SET_SORTING_DIR';
 
-export const setBusy = isBusy => {
+export const setBusy = (isBusy: boolean) => {
   return {
     type: SET_BUSY,
     payload: isBusy,
   };
 };
 
-export const setError = error => {
+export const setError = (error: string) => {
   return {
     type: SET_ERROR,
     payload: error,
   };
 };
 
-export const setRepositories = data => {
+export const setRepositories = (data: Array<Object>) => {
   return {
     type: SET_REPOSITORIES,
     payload: data,
   };
 };
 
-export const setTimeSpan = timeSpan => {
+export const setTimeSpan = (timeSpan: string) => {
   return {
     type: SET_TIME_SPAN,
     payload: timeSpan,
   };
 };
 
-export const setLanguage = language => {
+export const setLanguage = (language: string) => {
   return {
     type: SET_LANGUAGE,
     payload: language,
   };
 };
 
-export const setSoringDir = dir => {
+export const setSoringDir = (dir: string) => {
   return {
     type: SET_SORTING_DIR,
     payload: dir,
   };
 };
 
-export const fetchRepositories = () => async (dispatch, getState) => {
+export const fetchRepositories = () => async (
+  dispatch: Function,
+  getState: Function,
+) => {
   dispatch(setError(null));
   dispatch(setBusy(true));
 

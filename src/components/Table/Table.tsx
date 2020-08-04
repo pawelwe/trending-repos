@@ -1,7 +1,20 @@
 import React, { useCallback, useState } from 'react';
 import styles from './Table.scss';
 
-export const Table = ({ data }) => {
+export interface Props {
+  data: Array<{
+    name: string;
+    author: string;
+    avatar: string;
+    currentPeriodStars: number;
+    description: string;
+    language: string;
+    stars: number;
+    url: string;
+  }>;
+}
+
+export const Table: React.FC<Props> = ({ data }) => {
   let [isDescOpen, toggleDesc] = useState(false);
 
   const handleToggleDescription = useCallback(
@@ -20,14 +33,14 @@ export const Table = ({ data }) => {
     <table className={styles['table']}>
       <thead>
         <tr>
-          <th width="190px" colSpan="2">
+          <th style={{ width: '190px' }} colSpan={2}>
             Author
           </th>
-          <th width="150px">Name</th>
-          <th width="100px">Language</th>
-          <th width="60px">Stars</th>
+          <th style={{ width: '150px' }}>Name</th>
+          <th style={{ width: '100px' }}>Language</th>
+          <th style={{ width: '60px' }}>Stars</th>
           <th>Description</th>
-          <th width="150px">Link</th>
+          <th style={{ width: '150px' }}>Link</th>
         </tr>
       </thead>
       <tbody>

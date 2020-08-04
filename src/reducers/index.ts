@@ -5,18 +5,30 @@ import {
   SET_LANGUAGE,
   SET_TIME_SPAN,
   SET_SORTING_DIR,
-} from '../actions';
+} from '../actions/index';
 
-const initialState = {
+export interface InitialStateInterface {
+  isBusy: boolean;
+  error: string;
+  repositories: Array<Object> | null;
+  since: string;
+  language: string;
+  sortDir: string;
+}
+
+const initialState: InitialStateInterface = {
   isBusy: false,
-  error: null,
+  error: '',
   repositories: null,
   since: 'daily',
   language: '',
   sortDir: 'desc',
 };
 
-export const mainReducer = (state = initialState, action) => {
+export const mainReducer = (
+  state = initialState,
+  action: { type: string; payload: any },
+) => {
   switch (action.type) {
     case SET_BUSY:
       return { ...state, isBusy: action.payload };

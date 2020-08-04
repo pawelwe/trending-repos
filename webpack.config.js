@@ -9,8 +9,16 @@ module.exports = (env, argv) => {
   return {
     mode: argv.mode,
     devtool: devtool,
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
+    },
     module: {
       rules: [
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
+        },
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,

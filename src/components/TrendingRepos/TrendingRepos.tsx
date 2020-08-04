@@ -1,15 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRepositories, setLanguage, setTimeSpan } from '../../actions';
+import {
+  fetchRepositories,
+  setLanguage,
+  setTimeSpan,
+} from '../../actions/index';
 import { saveData, loadData } from '../../utils/utils';
 import { Messages } from '../Messages/Messages';
 import { Header } from '../Header/Header';
 import { Table } from '../Table/Table';
+import { InitialStateInterface } from '../../reducers/index';
 
-export const TrendingRepos = () => {
-  const { repositories, isBusy, error, since, language } = useSelector(
-    state => state,
-  );
+interface StateProps {
+  isBusy: boolean;
+  error: string;
+  repositories: any;
+  since: string;
+  language: string;
+}
+
+export const TrendingRepos: React.FC = () => {
+  const { repositories, isBusy, error, since, language } = useSelector<
+    InitialStateInterface,
+    StateProps
+  >((state: InitialStateInterface) => state);
   const dispatch = useDispatch();
   const noResults = repositories && repositories.length === 0;
 
