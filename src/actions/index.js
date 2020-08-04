@@ -79,6 +79,8 @@ export const changeTimeSpan = timeSpan => dispatch => {
 };
 
 export const fetchRepositories = () => async (dispatch, getState) => {
+  console.log('Fetching data');
+
   batch(() => {
     dispatch(setError(null));
     dispatch(setBusy(true));

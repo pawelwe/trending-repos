@@ -16,15 +16,20 @@ export const TrendingRepos = () => {
   useEffect(() => {
     const savedFilters = loadData('filters');
 
+    console.log('Loading filters');
+
     if (!savedFilters) return;
 
     const { language, since } = savedFilters;
+
+    console.log('Setting filters');
 
     dispatch(setLanguage(language));
     dispatch(setTimeSpan(since));
   }, []);
 
   useEffect(() => {
+    console.log('Saving filters', language, since);
     saveData('filters', {
       language,
       since,
@@ -38,7 +43,7 @@ export const TrendingRepos = () => {
     fetchData();
   }, []);
 
-  console.log('App rendered');
+  console.log('App rendered', repositories);
 
   return (
     <>
