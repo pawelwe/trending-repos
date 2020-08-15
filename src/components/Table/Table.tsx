@@ -1,17 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import styles from './Table.scss';
+import { RepositoryInterface } from '../../reducers/index';
 
-export interface Props {
-  data: Array<{
-    name: string;
-    author: string;
-    avatar: string;
-    currentPeriodStars: number;
-    description: string;
-    language: string;
-    stars: number;
-    url: string;
-  }>;
+interface Props {
+  data: Array<RepositoryInterface>;
 }
 
 export const Table: React.FC<Props> = ({ data }) => {

@@ -14,12 +14,15 @@ import { compareValues } from '../../utils/utils';
 import { Select } from '../Select/Select';
 import { SortButton } from '../SortButton/SortButton';
 import { TimeSpan } from '../TimeSpan/TimeSpan';
-import { InitialStateInterface } from '../../reducers/index';
+import {
+  InitialStateInterface,
+  RepositoryInterface,
+} from '../../reducers/index';
 
 interface StateProps {
-  sortDir: string;
-  repositories: Array<Object>;
+  repositories: Array<RepositoryInterface>;
   since: string;
+  sortDir: string;
   language: string;
 }
 

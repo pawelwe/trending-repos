@@ -2,13 +2,13 @@ import React, { memo } from 'react';
 import { Loader } from '../Loader/Loader';
 import styles from './Messages.scss';
 
-export interface Props {
+interface Props {
   isBusy: boolean;
-  error: string | null;
+  error: string;
   noResults: boolean;
 }
 
-export const Messages = memo(({ isBusy, error, noResults }: Props) => {
+export const Messages = memo<Props>(({ isBusy, error, noResults }) => {
   return (
     <div className="container">
       {isBusy && <Loader />}

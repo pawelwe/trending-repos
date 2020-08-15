@@ -7,10 +7,21 @@ import {
   SET_SORTING_DIR,
 } from '../actions/index';
 
+export interface RepositoryInterface {
+  name: string;
+  author: string;
+  avatar: string;
+  currentPeriodStars: number;
+  description: string;
+  language: string;
+  stars: number;
+  url: string;
+}
+
 export interface InitialStateInterface {
   isBusy: boolean;
   error: string;
-  repositories: Array<Object> | null;
+  repositories: Array<RepositoryInterface> | null;
   since: string;
   language: string;
   sortDir: string;

@@ -7,7 +7,7 @@ interface Props {
   children: ReactNode;
 }
 
-export const SortButton = memo(({ onClick, children, sortDir }: Props) => {
+export const SortButton = memo<Props>(({ onClick, children, sortDir }) => {
   return (
     <button className={styles['button']} onClick={onClick}>
       {children}

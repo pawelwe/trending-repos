@@ -9,12 +9,15 @@ import { saveData, loadData } from '../../utils/utils';
 import { Messages } from '../Messages/Messages';
 import { Header } from '../Header/Header';
 import { Table } from '../Table/Table';
-import { InitialStateInterface } from '../../reducers/index';
+import {
+  InitialStateInterface,
+  RepositoryInterface,
+} from '../../reducers/index';
 
 interface StateProps {
   isBusy: boolean;
   error: string;
-  repositories: any;
+  repositories: Array<RepositoryInterface>;
   since: string;
   language: string;
 }

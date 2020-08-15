@@ -7,7 +7,7 @@ interface Props {
   checkedItem: String;
 }
 
-export const TimeSpan = memo(({ timeSpans, onChange, checkedItem }: Props) => {
+export const TimeSpan = memo<Props>(({ timeSpans, onChange, checkedItem }) => {
   return (
     <div className={styles['time-span-box']}>
       {timeSpans.map(({ value }) => {

@@ -126,6 +126,7 @@ $border-dark: #e4dcdc;
 
     tr {
       border: 1rem solid $border-light;
+      border-bottom: 0;
     }
 
     td {
@@ -169,6 +170,9 @@ $border-dark: #e4dcdc;
     }
     td:nth-of-type(7):before {
       content: 'Link';
+    }
+    td:last-child {
+      border-bottom: 0;
     }
   }
 }
